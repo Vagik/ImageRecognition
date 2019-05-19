@@ -1,0 +1,16 @@
+Client/*.iml
+Client/.gradle
+Client/local.properties
+Client/.idea/caches/build_file_checksums.ser
+Client/.idea/libraries
+Client/.idea/modules.xml
+Client/.idea/workspace.xml
+Client/.DS_Store
+Client/build
+Client/captures
+Client/.externalNativeBuild
+
+Server/Scripts/
+Server/Lib/
+Server/Include/imagenet_model.json
+Server/Include/imagenet_model.h5
