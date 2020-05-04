@@ -12,5 +12,6 @@ Client/.externalNativeBuild
 
 Server/Scripts/
 Server/Lib/
+Server/venv/
 Server/Include/imagenet_model.json
 Server/Include/imagenet_model.h5
