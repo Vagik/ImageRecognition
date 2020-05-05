@@ -1,49 +1,25 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>123.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\123.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\123.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>615</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>juice</name>
 		<pose>Unspecified</pose>
-		<truncated>0</truncated>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>56</xmin>
+			<xmin>1</xmin>
 			<ymin>203</ymin>
-			<xmax>159</xmax>
-			<ymax>472</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>juice</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>147</xmin>
-			<ymin>203</ymin>
-			<xmax>237</xmax>
-			<ymax>474</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>juice</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>222</xmin>
-			<ymin>199</ymin>
-			<xmax>316</xmax>
+			<xmax>96</xmax>
 			<ymax>477</ymax>
 		</bndbox>
 	</object>
@@ -53,21 +29,9 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>301</xmin>
-			<ymin>191</ymin>
-			<xmax>390</xmax>
-			<ymax>475</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>juice</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>374</xmin>
-			<ymin>195</ymin>
-			<xmax>469</xmax>
+			<xmin>79</xmin>
+			<ymin>207</ymin>
+			<xmax>175</xmax>
 			<ymax>472</ymax>
 		</bndbox>
 	</object>
@@ -77,33 +41,21 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>448</xmin>
+			<xmin>157</xmin>
+			<ymin>207</ymin>
+			<xmax>246</xmax>
+			<ymax>479</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>juice</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>230</xmin>
 			<ymin>195</ymin>
-			<xmax>539</xmax>
-			<ymax>472</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>juice</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>531</xmin>
-			<ymin>206</ymin>
-			<xmax>614</xmax>
-			<ymax>470</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>juice</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>610</xmin>
-			<ymin>205</ymin>
-			<xmax>698</xmax>
+			<xmax>328</xmax>
 			<ymax>474</ymax>
 		</bndbox>
 	</object>
@@ -113,9 +65,9 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>690</xmin>
-			<ymin>203</ymin>
-			<xmax>779</xmax>
+			<xmin>305</xmin>
+			<ymin>200</ymin>
+			<xmax>399</xmax>
 			<ymax>473</ymax>
 		</bndbox>
 	</object>
@@ -125,10 +77,58 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>771</xmin>
-			<ymin>205</ymin>
-			<xmax>857</xmax>
+			<xmin>379</xmin>
+			<ymin>197</ymin>
+			<xmax>474</xmax>
+			<ymax>472</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>juice</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>464</xmin>
+			<ymin>211</ymin>
+			<xmax>550</xmax>
 			<ymax>474</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>juice</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>543</xmin>
+			<ymin>206</ymin>
+			<xmax>631</xmax>
+			<ymax>474</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>juice</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>624</xmin>
+			<ymin>204</ymin>
+			<xmax>711</xmax>
+			<ymax>471</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>juice</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>703</xmin>
+			<ymin>206</ymin>
+			<xmax>793</xmax>
+			<ymax>473</ymax>
 		</bndbox>
 	</object>
 </annotation>

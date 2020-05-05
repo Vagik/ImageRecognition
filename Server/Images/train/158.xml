@@ -1,26 +1,26 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>158.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\158.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\158.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>900</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
 	<object>
 		<name>peas</name>
 		<pose>Unspecified</pose>
-		<truncated>0</truncated>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>31</xmin>
-			<ymin>14</ymin>
-			<xmax>863</xmax>
-			<ymax>884</ymax>
+			<xmin>5</xmin>
+			<ymin>5</ymin>
+			<xmax>606</xmax>
+			<ymax>600</ymax>
 		</bndbox>
 	</object>
 </annotation>

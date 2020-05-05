@@ -1,13 +1,13 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>171.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\171.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\171.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>622</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,9 +17,57 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>344</xmin>
+			<xmin>443</xmin>
 			<ymin>425</ymin>
-			<xmax>446</xmax>
+			<xmax>535</xmax>
+			<ymax>528</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>peas</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>357</xmin>
+			<ymin>428</ymin>
+			<xmax>447</xmax>
+			<ymax>524</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>peas</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>608</xmin>
+			<ymin>430</ymin>
+			<xmax>704</xmax>
+			<ymax>530</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>peas</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>691</xmin>
+			<ymin>429</ymin>
+			<xmax>787</xmax>
+			<ymax>522</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>peas</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>526</xmin>
+			<ymin>432</ymin>
+			<xmax>615</xmax>
 			<ymax>527</ymax>
 		</bndbox>
 	</object>
@@ -29,10 +77,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>435</xmin>
-			<ymin>425</ymin>
-			<xmax>534</xmax>
-			<ymax>526</ymax>
+			<xmin>272</xmin>
+			<ymin>497</ymin>
+			<xmax>359</xmax>
+			<ymax>572</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -41,10 +89,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>519</xmin>
-			<ymin>423</ymin>
-			<xmax>612</xmax>
-			<ymax>526</ymax>
+			<xmin>187</xmin>
+			<ymin>500</ymin>
+			<xmax>280</xmax>
+			<ymax>571</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -53,46 +101,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>604</xmin>
-			<ymin>429</ymin>
-			<xmax>700</xmax>
-			<ymax>526</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>peas</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>690</xmin>
-			<ymin>429</ymin>
-			<xmax>781</xmax>
-			<ymax>529</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>peas</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>762</xmin>
-			<ymin>424</ymin>
-			<xmax>869</xmax>
-			<ymax>527</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>peas</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>126</xmin>
+			<xmin>120</xmin>
 			<ymin>455</ymin>
-			<xmax>202</xmax>
-			<ymax>536</ymax>
+			<xmax>199</xmax>
+			<ymax>539</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -101,10 +113,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>59</xmin>
-			<ymin>454</ymin>
-			<xmax>139</xmax>
-			<ymax>539</ymax>
+			<xmin>55</xmin>
+			<ymin>458</ymin>
+			<xmax>140</xmax>
+			<ymax>535</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -114,9 +126,9 @@
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>1</xmin>
-			<ymin>451</ymin>
-			<xmax>73</xmax>
-			<ymax>538</ymax>
+			<ymin>456</ymin>
+			<xmax>70</xmax>
+			<ymax>540</ymax>
 		</bndbox>
 	</object>
 </annotation>

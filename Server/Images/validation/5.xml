@@ -131,4 +131,16 @@
 			<ymax>234</ymax>
 		</bndbox>
 	</object>
+	<object>
+		<name>chips</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>8</xmin>
+			<ymin>359</ymin>
+			<xmax>141</xmax>
+			<ymax>551</ymax>
+		</bndbox>
+	</object>
 </annotation>

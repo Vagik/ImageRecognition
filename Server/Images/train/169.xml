@@ -1,13 +1,13 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>169.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\169.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\169.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>900</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>33</xmin>
-			<ymin>51</ymin>
-			<xmax>839</xmax>
-			<ymax>874</ymax>
+			<xmin>32</xmin>
+			<ymin>25</ymin>
+			<xmax>549</xmax>
+			<ymax>592</ymax>
 		</bndbox>
 	</object>
 </annotation>

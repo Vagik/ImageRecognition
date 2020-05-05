@@ -1,13 +1,13 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>127.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\127.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\127.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>597</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>39</xmin>
-			<ymin>160</ymin>
-			<xmax>203</xmax>
-			<ymax>557</ymax>
+			<xmin>54</xmin>
+			<ymin>176</ymin>
+			<xmax>208</xmax>
+			<ymax>556</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>178</xmin>
-			<ymin>162</ymin>
-			<xmax>321</xmax>
-			<ymax>552</ymax>
+			<xmin>180</xmin>
+			<ymin>173</ymin>
+			<xmax>317</xmax>
+			<ymax>550</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -41,10 +41,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>296</xmin>
-			<ymin>158</ymin>
-			<xmax>423</xmax>
-			<ymax>539</ymax>
+			<xmin>303</xmin>
+			<ymin>168</ymin>
+			<xmax>425</xmax>
+			<ymax>546</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -53,10 +53,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>413</xmin>
-			<ymin>158</ymin>
-			<xmax>538</xmax>
-			<ymax>542</ymax>
+			<xmin>416</xmin>
+			<ymin>169</ymin>
+			<xmax>543</xmax>
+			<ymax>543</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -65,10 +65,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>530</xmin>
-			<ymin>162</ymin>
-			<xmax>653</xmax>
-			<ymax>548</ymax>
+			<xmin>528</xmin>
+			<ymin>168</ymin>
+			<xmax>658</xmax>
+			<ymax>547</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -77,10 +77,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>633</xmin>
-			<ymin>165</ymin>
-			<xmax>785</xmax>
-			<ymax>551</ymax>
+			<xmin>647</xmin>
+			<ymin>172</ymin>
+			<xmax>782</xmax>
+			<ymax>550</ymax>
 		</bndbox>
 	</object>
 </annotation>

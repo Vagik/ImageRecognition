@@ -1,13 +1,13 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>130.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\130.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\130.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>830</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>20</xmin>
-			<ymin>87</ymin>
-			<xmax>236</xmax>
-			<ymax>679</ymax>
+			<xmin>6</xmin>
+			<ymin>35</ymin>
+			<xmax>208</xmax>
+			<ymax>570</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>220</xmin>
-			<ymin>85</ymin>
-			<xmax>416</xmax>
-			<ymax>667</ymax>
+			<xmin>188</xmin>
+			<ymin>43</ymin>
+			<xmax>375</xmax>
+			<ymax>559</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -41,10 +41,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>408</xmin>
-			<ymin>98</ymin>
-			<xmax>617</xmax>
-			<ymax>660</ymax>
+			<xmin>348</xmin>
+			<ymin>52</ymin>
+			<xmax>558</xmax>
+			<ymax>560</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -53,10 +53,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>605</xmin>
-			<ymin>96</ymin>
-			<xmax>814</xmax>
-			<ymax>666</ymax>
+			<xmin>520</xmin>
+			<ymin>56</ymin>
+			<xmax>720</xmax>
+			<ymax>556</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -65,10 +65,10 @@
 		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>801</xmin>
-			<ymin>86</ymin>
-			<xmax>900</xmax>
-			<ymax>647</ymax>
+			<xmin>702</xmin>
+			<ymin>51</ymin>
+			<xmax>800</xmax>
+			<ymax>539</ymax>
 		</bndbox>
 	</object>
 </annotation>

@@ -4,14 +4,20 @@ import cv2
 
 if __name__ == "__main__":
 
-    raw_dir = 'C:/Git/ImageRecognition/Server/Images/to_resize'
+    raw_dir = 'C:/Git/ImageRecognition/Server/Images/validation'
     save_dir = 'C:/Git/ImageRecognition/Server/Images/resized'
     ext = 'jpg'
     target_width = 900
 
     fnames = glob.glob(os.path.join(raw_dir, "*.{}".format(ext)))
     os.makedirs(save_dir, exist_ok=True)
-
+    for index, fname in enumerate(fnames):
+        #print(fname + '\n', end="", flush=True)
+        img = cv2.imread(fname)
+        height, width, channels = img.shape
+        if height != 600 or width != 800:
+            print(fname)
+"""
     for index, fname in enumerate(fnames):
         print(fname + '\n', end="", flush=True)
         img = cv2.imread(fname)
@@ -22,3 +28,4 @@ if __name__ == "__main__":
         new_fname = "{}.{}".format(str(index + 158), ext)
         small_fname = os.path.join(save_dir, new_fname)
         cv2.imwrite(small_fname, img_small)
+"""

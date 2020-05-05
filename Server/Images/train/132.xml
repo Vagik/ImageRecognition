@@ -1,12 +1,12 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>132.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\132.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\132.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
+		<width>800</width>
 		<height>600</height>
 		<depth>3</depth>
 	</size>

@@ -1,13 +1,13 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>validation</folder>
 	<filename>146.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\146.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\validation\146.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>900</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,10 +17,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>246</xmin>
-			<ymin>13</ymin>
-			<xmax>663</xmax>
-			<ymax>878</ymax>
+			<xmin>145</xmin>
+			<ymin>11</ymin>
+			<xmax>491</xmax>
+			<ymax>590</ymax>
 		</bndbox>
 	</object>
 </annotation>

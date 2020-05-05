@@ -311,4 +311,16 @@
 			<ymax>539</ymax>
 		</bndbox>
 	</object>
+	<object>
+		<name>lemonade</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>263</xmin>
+			<ymin>409</ymin>
+			<xmax>378</xmax>
+			<ymax>546</ymax>
+		</bndbox>
+	</object>
 </annotation>

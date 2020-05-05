@@ -1,13 +1,13 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>validation</folder>
 	<filename>107.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\107.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\validation\107.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>900</width>
-		<height>675</height>
+		<width>800</width>
+		<height>600</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -18,9 +18,9 @@
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>92</xmin>
-			<ymin>15</ymin>
-			<xmax>375</xmax>
-			<ymax>609</ymax>
+			<ymin>24</ymin>
+			<xmax>330</xmax>
+			<ymax>539</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>334</xmin>
-			<ymin>10</ymin>
-			<xmax>559</xmax>
-			<ymax>603</ymax>
+			<xmin>311</xmin>
+			<ymin>24</ymin>
+			<xmax>489</xmax>
+			<ymax>540</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -41,10 +41,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>533</xmin>
-			<ymin>9</ymin>
-			<xmax>750</xmax>
-			<ymax>609</ymax>
+			<xmin>478</xmin>
+			<ymin>26</ymin>
+			<xmax>675</xmax>
+			<ymax>545</ymax>
 		</bndbox>
 	</object>
 </annotation>
