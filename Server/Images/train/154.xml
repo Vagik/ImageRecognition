@@ -1,0 +1,26 @@
+<annotation>
+	<folder>resized</folder>
+	<filename>154.jpg</filename>
+	<path>C:\Git\ImageRecognition\Server\Images\resized\154.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>900</width>
+		<height>1199</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>203</xmin>
+			<ymin>3</ymin>
+			<xmax>709</xmax>
+			<ymax>1188</ymax>
+		</bndbox>
+	</object>
+</annotation>

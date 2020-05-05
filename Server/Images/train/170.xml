@@ -1,0 +1,26 @@
+<annotation>
+	<folder>resized</folder>
+	<filename>170.jpg</filename>
+	<path>C:\Git\ImageRecognition\Server\Images\resized\170.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>900</width>
+		<height>735</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>peas</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>122</xmin>
+			<ymin>22</ymin>
+			<xmax>748</xmax>
+			<ymax>729</ymax>
+		</bndbox>
+	</object>
+</annotation>
