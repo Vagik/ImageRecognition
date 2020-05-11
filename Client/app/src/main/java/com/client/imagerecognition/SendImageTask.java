@@ -29,7 +29,7 @@ public class SendImageTask extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         try {
-            socket = new Socket("192.168.0.102", 8000);
+            socket = new Socket("192.168.0.101", 8000);
             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
             FileInputStream inputStream = new FileInputStream(sendImagePath);
             int data;

@@ -1,7 +1,7 @@
 <annotation>
-	<folder>train</folder>
-	<filename>21.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\train\21.jpg</path>
+	<folder>resized</folder>
+	<filename>233.jpg</filename>
+	<path>C:\Git\ImageRecognition\Server\Images\resized\233.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,15 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>chips</name>
+		<name>milk</name>
 		<pose>Unspecified</pose>
-		<truncated>0</truncated>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>165</xmin>
-			<ymin>113</ymin>
-			<xmax>650</xmax>
-			<ymax>526</ymax>
+			<xmin>110</xmin>
+			<ymin>1</ymin>
+			<xmax>493</xmax>
+			<ymax>595</ymax>
 		</bndbox>
 	</object>
 </annotation>
