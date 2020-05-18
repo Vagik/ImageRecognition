@@ -18,9 +18,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -49,54 +52,22 @@ public class MainActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Sending image...");
 
-        findViewById(R.id.pickFileButton).setOnClickListener(new View.OnClickListener() {
+        File dir = getExternalFilesDir(null);
+        dir.mkdirs();
+        File[] files = dir.listFiles(new FilenameFilter() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_FILE_REQUEST_CODE);
+            public boolean accept(File file, String name) {
+                return name.endsWith(".jpg");
             }
         });
 
-        findViewById(R.id.takePhotoButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                File photoFile;
-                try {
-                    photoFile = createImageFile();
-                    if (photoFile != null) {
-                        Uri photoURI = FileProvider.getUriForFile(MainActivity.this,
-                                "com.client.imagerecognition.fileprovider", photoFile);
-                        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                        startActivityForResult(intent, TAKE_PHOTO_REQUEST_CODE);
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
+        List<String> filePaths = new ArrayList<>();
+        for (File file: files) {
+            filePaths.add(file.getPath());
+        }
 
-        findViewById(R.id.recognizeImageButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (selectedImagePath != null) {
-                    progressDialog.show();
-                    new SendImageTask(selectedImagePath, progressDialog, alertDialog).execute();
-                } else {
-                    alertDialog
-                            .setTitle("Error")
-                            .setMessage("Please select image to recognize")
-                            .setCancelable(false)
-                            .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .show();
-                }
-            }
-        });
+        GalleryView galleryView = findViewById(R.id.gallery_view);
+        galleryView.setImages(filePaths);
     }
 
 

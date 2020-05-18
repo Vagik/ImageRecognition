@@ -2,85 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f94a4f0-1714-4fb2-9e49-0d34b5803d53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/SendImageTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/SendImageTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/100.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/100.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/103.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/103.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/104.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/104.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/17.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/train/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/21.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/29.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/29.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/30.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/30.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/31.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/31.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/32.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/33.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/35.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/35.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/36.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/36.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/37.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/37.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/38.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/38.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/39.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/39.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/40.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/40.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/41.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/41.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/43.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/43.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/44.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/44.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/45.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/45.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/46.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/46.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/47.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/47.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/52.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/52.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/53.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/53.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/55.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/55.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/68.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/68.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/69.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/69.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/76.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/76.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/77.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/77.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/train/9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/14.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/validation/15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Include/ResizeImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/Include/ResizeImages.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,8 +25,13 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Include" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Git\ImageRecognition\Server\Include" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -118,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ResizeImages">
+  <component name="RunManager" selected="Python.ServerDetector">
     <configuration name="Communicate" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -203,6 +130,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ServerDetector" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Git\ImageRecognition\Server\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Include" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Include/ServerDetector.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,9 +177,11 @@
       <item itemvalue="Python.ModelCreator" />
       <item itemvalue="Python.RenameFiles" />
       <item itemvalue="Python.ResizeImages" />
+      <item itemvalue="Python.ServerDetector" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ServerDetector" />
         <item itemvalue="Python.ResizeImages" />
         <item itemvalue="Python.RenameFiles" />
         <item itemvalue="Python.ModelCreator" />
