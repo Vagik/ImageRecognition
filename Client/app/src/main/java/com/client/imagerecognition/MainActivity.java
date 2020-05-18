@@ -1,24 +1,16 @@
 package com.client.imagerecognition;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,12 +24,12 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 public class MainActivity extends AppCompatActivity {
 
     private final static int CHECK_PERMISSIONS_REQUEST_CODE = 1000;
-    private final static int PICK_FILE_REQUEST_CODE = 1001;
-    private final static int TAKE_PHOTO_REQUEST_CODE = 1002;
+    public final static int TAKE_PHOTO_REQUEST_CODE = 1002;
 
-    private String selectedImagePath;
+    private String takeImagePath;
     private AlertDialog.Builder alertDialog;
     private ProgressDialog progressDialog;
+    private GalleryView galleryView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +46,21 @@ public class MainActivity extends AppCompatActivity {
 
         File dir = getExternalFilesDir(null);
         dir.mkdirs();
-        File[] files = dir.listFiles(new FilenameFilter() {
-            @Override
-            public boolean accept(File file, String name) {
-                return name.endsWith(".jpg");
-            }
-        });
+        File[] files = dir.listFiles((file, name) -> name.endsWith(".jpg"));
 
         List<String> filePaths = new ArrayList<>();
-        for (File file: files) {
+        for (File file : files) {
             filePaths.add(file.getPath());
         }
 
-        GalleryView galleryView = findViewById(R.id.gallery_view);
+        galleryView = findViewById(R.id.gallery_view);
         galleryView.setImages(filePaths);
+
+
+        findViewById(R.id.takePhotoButton).setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), TakeImageActivity.class);
+            startActivityForResult(intent, TAKE_PHOTO_REQUEST_CODE);
+        });
     }
 
 
@@ -77,37 +70,30 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case CHECK_PERMISSIONS_REQUEST_CODE:
                 break;
-            case PICK_FILE_REQUEST_CODE:
-                if (resultCode == RESULT_OK) {
-                    Uri selectedImage = data.getData();
-                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
-
-                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-                    cursor.moveToFirst();
-
-                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                    selectedImagePath = cursor.getString(columnIndex);
-                    cursor.close();
-                }
-                break;
             case TAKE_PHOTO_REQUEST_CODE:
-                if (resultCode == RESULT_CANCELED) {
-                    selectedImagePath = null;
+                if (resultCode == RESULT_OK) {
+                    Bundle extras = data.getExtras();
+                    String takeImages = extras.getString(TakeImageActivity.TAKEN_IMAGES_LIST);
+                    if (takeImages != null) {
+                        String[] images = takeImages.split(",");
+                        for (String image : images) {
+                            galleryView.addImage(image);
+                        }
+                    }
                 }
                 break;
         }
     }
 
     private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "Image_" + timeStamp;
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        String imageFileName = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File storageDir = getExternalFilesDir(null);
         File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+                imageFileName,
+                ".jpg",
+                storageDir
         );
-        selectedImagePath = image.getAbsolutePath();
+        takeImagePath = image.getAbsolutePath();
         return image;
     }
 

@@ -1,15 +1,15 @@
 package com.client.imagerecognition;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
 import android.widget.ImageView;
 
-public class MemoryCache {
+import com.squareup.picasso.Picasso;
 
-    public static void LoadImageThumbnail(ImageView imageView, String filePath, int width) {
-        Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-        Bitmap thumbnail = ThumbnailUtils.extractThumbnail(bitmap, width, width);
-        imageView.setImageBitmap(thumbnail);
+import java.io.File;
+
+class MemoryCache {
+
+    static void LoadImageThumbnail(ImageView imageView, String filePath, int width) {
+        File file = new File(filePath);
+        Picasso.get().load(file).resize(width, width).centerCrop().error(R.drawable.ic_launcher_foreground).into(imageView);
     }
 }
