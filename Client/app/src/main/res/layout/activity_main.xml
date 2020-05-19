@@ -12,11 +12,21 @@
         android:layout_above="@id/takePhotoButton"/>
 
     <Button
-        android:id="@+id/takePhotoButton"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/realTimeDetectionButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="25dp"
+        android:backgroundTint="@color/buttonColor"
+        android:textColor="@android:color/white"
+        android:text="@string/real_time_detection_button_text"/>
+    <Button
+        android:id="@+id/takePhotoButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_margin="25dp"
         android:backgroundTint="@color/buttonColor"
         android:textColor="@android:color/white"

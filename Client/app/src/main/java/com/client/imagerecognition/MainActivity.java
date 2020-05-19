@@ -61,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(v.getContext(), TakeImageActivity.class);
             startActivityForResult(intent, TAKE_PHOTO_REQUEST_CODE);
         });
+        findViewById(R.id.realTimeDetectionButton).setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), TakeImageActivity.class);
+            intent.putExtra(TakeImageActivity.REAL_TIME_DETECTION_MODE, true);
+            startActivity(intent);
+        });
     }
 
 
@@ -83,18 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
-    }
-
-    private File createImageFile() throws IOException {
-        String imageFileName = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File storageDir = getExternalFilesDir(null);
-        File image = File.createTempFile(
-                imageFileName,
-                ".jpg",
-                storageDir
-        );
-        takeImagePath = image.getAbsolutePath();
-        return image;
     }
 
     private boolean checkPermission() {

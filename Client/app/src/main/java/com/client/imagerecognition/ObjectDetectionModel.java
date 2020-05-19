@@ -54,13 +54,12 @@ public class ObjectDetectionModel implements Classifier {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength);
     }
 
-    public static Classifier create(final AssetManager assetManager, final String modelFilename, final String labelFilename,
-                                    final int inputSize, final boolean isQuantized) throws IOException {
+    static Classifier create(final AssetManager assetManager, final String modelFilename, final String labelFilename,
+                             final int inputSize, final boolean isQuantized) throws IOException {
 
         final ObjectDetectionModel d = new ObjectDetectionModel();
 
-        String actualFilename = labelFilename;//.split("file:///android_asset/")[1];
-        InputStream labelsInput = assetManager.open(actualFilename);
+        InputStream labelsInput = assetManager.open(labelFilename);
         BufferedReader br = new BufferedReader(new InputStreamReader(labelsInput));
         String line;
         while ((line = br.readLine()) != null) {
