@@ -8,7 +8,7 @@ if __name__ == "__main__":
     save_dir = 'C:/Git/ImageRecognition/Server/Images/resized'
     ext = 'jpg'
     target_width = 800
-    start_name_number = 236
+    start_name_number = 310
 
     fnames = glob.glob(os.path.join(raw_dir, "*.{}".format(ext)))
     os.makedirs(save_dir, exist_ok=True)
