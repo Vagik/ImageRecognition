@@ -1,0 +1,24 @@
+item {
+    id: 1
+    name: 'chips'
+}
+
+item {
+    id: 2
+    name: 'juice'
+}
+
+item {
+    id: 3
+    name: 'lemonade'
+}
+
+item {
+    id: 4
+    name: 'milk'
+}
+
+item {
+    id: 5
+    name: 'peas'
+}
