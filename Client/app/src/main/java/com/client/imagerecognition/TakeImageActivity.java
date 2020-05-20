@@ -13,8 +13,11 @@ import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class TakeImageActivity extends AppCompatActivity implements IStartCameraCallback,
         Camera.PictureCallback, Camera.AutoFocusCallback, Camera.PreviewCallback {
@@ -47,8 +51,13 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
     private Classifier detector;
     private int previewHeight;
     private int previewWidth;
+    private int surfaceViewHeight;
+    private int surfaceViewWidth;
+    private float surfaceWidthScale;
+    private float surfaceHeightScale;
     private int previewFormat;
     private Bitmap frame;
+    private boolean computingDetection = false;
     private Paint framePaint;
     private Paint titlePaint;
     private Bitmap scaledBitmap;
@@ -72,7 +81,7 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
         framePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         framePaint.setStyle(Paint.Style.STROKE);
         framePaint.setStrokeWidth(8);
-        titlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        titlePaint = new Paint();
     }
 
     @Override
@@ -84,8 +93,13 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
     @Override
     protected void onPause() {
         super.onPause();
-        camera.stopPreview();
-        camera.release();
+        try{
+            camera.setPreviewCallback(null);
+            camera.stopPreview();
+            camera.release();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         camera = null;
     }
 
@@ -99,7 +113,6 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
         camera.setDisplayOrientation(90);
 
         Camera.Parameters params = camera.getParameters();
-        params.setJpegQuality(100);
 
         List<Camera.Size> previewSizes = params.getSupportedPreviewSizes();
         params.setPreviewSize(previewSizes.get(0).width, previewSizes.get(0).height);
@@ -124,18 +137,21 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
                 e.printStackTrace();
             }
         }
-
         Camera.Size previewSize = camera.getParameters().getPreviewSize();
-        previewHeight = surfaceView.getHeight();
-        previewWidth = surfaceView.getWidth();
+        previewHeight = previewSize.height;
+        previewWidth = previewSize.width;
         previewFormat = camera.getParameters().getPreviewFormat();
 
+        surfaceViewHeight = surfaceView.getHeight();
+        surfaceViewWidth = surfaceView.getWidth();
+        surfaceHeightScale = surfaceViewHeight / 300.0f;
+        surfaceWidthScale = surfaceViewWidth / 300.0f;
         camera.startPreview();
     }
 
     @Override
     public void onBackPressed() {
-        if (takenImages.size() > 1) {
+        if (takenImages.size() > 0) {
             Intent resultIntent = new Intent();
             resultIntent.putExtra(TAKEN_IMAGES_LIST, TextUtils.join(",", takenImages));
             setResult(RESULT_OK, resultIntent);
@@ -148,17 +164,15 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
 
     @Override
     public void onPictureTaken(byte[] imageArray, Camera camera) {
-        Thread saveImageThread = new Thread(() -> {
+        new Thread(() -> {
             SaveImage(imageArray);
             progressDialog.dismiss();
             StartPreview();
-        });
-
-        saveImageThread.start();
+        }).start();
     }
 
     private void SaveImage(byte[] imageArray) {
-        String imageFileName = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".jpg";
+        String imageFileName = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.ENGLISH).format(new Date()) + ".jpg";
         File storageDir = getExternalFilesDir(null);
 
         if (!storageDir.exists()) {
@@ -168,56 +182,34 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
         if (newImage.exists()) {
             newImage.delete();
         }
-        String imagePath = newImage.getPath();
-        try (FileOutputStream fos = new FileOutputStream(imagePath)) {
-            fos.write(imageArray);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        isImageTakingProcessStarted = false;
-        takenImages.add(imagePath);
 
         BitmapFactory.Options options = new BitmapFactory.Options();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.length, options);
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeByteArray(imageArray, 0, imageArray.length, options);
         if (options.outWidth > options.outHeight) {
-            Bitmap rotatedBitmap = rotateImage(bitmap, 90);
-            newImage.delete();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.length);
+            Bitmap rotatedBitmap = Utilities.rotateImage(bitmap, 90);
             try {
                 OutputStream os = new BufferedOutputStream(new FileOutputStream(newImage));
-                rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 90, os);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+            bitmap.recycle();
+            rotatedBitmap.recycle();
+        } else {
+            try (FileOutputStream fos = new FileOutputStream(newImage.getPath())) {
+                fos.write(imageArray);
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
         }
+
+        isImageTakingProcessStarted = false;
+        takenImages.add(newImage.getPath());
     }
 
-    private void SaveImage(Bitmap imageArray) {
-        String imageFileName = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".jpg";
-        File storageDir = getExternalFilesDir(null);
 
-        if (!storageDir.exists()) {
-            storageDir.mkdirs();
-        }
-        File newImage = new File(storageDir, imageFileName);
-        if (newImage.exists()) {
-            newImage.delete();
-        }
-        String imagePath = newImage.getPath();
-        try (FileOutputStream fos = new FileOutputStream(imagePath)) {
-            imageArray.compress(Bitmap.CompressFormat.JPEG, 90, fos);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-    }
-
-    private static Bitmap rotateImage(Bitmap img, int degree) {
-        Matrix matrix = new Matrix();
-        matrix.postRotate(degree);
-        Bitmap rotatedImg = Bitmap.createBitmap(img, 0, 0, img.getWidth(), img.getHeight(), matrix, true);
-        img.recycle();
-        return rotatedImg;
-    }
 
     @Override
     public void onAutoFocus(boolean isSuccess, Camera camera) {
@@ -230,34 +222,22 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
 
     @Override
     public void onPreviewFrame(byte[] bytes, Camera camera) {
-        if (bytes == null || camera == null) {
+        if (bytes == null || camera == null || computingDetection) {
             return;
         }
 
+        computingDetection = true;
         AsyncTask.execute(() -> {
             try {
-                try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-                    YuvImage yuvImage = new YuvImage(bytes, previewFormat, previewWidth, previewHeight, null);
-                    yuvImage.compressToJpeg(new Rect(0, 0, previewWidth, previewHeight), 90, out);
-                    yuvImage = null;
-                    byte[] imageBytes = out.toByteArray();
-                    frame = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                    imageBytes = null;
-                    out.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                scaledBitmap = rotateImage(Bitmap.createScaledBitmap(frame, 300, 300, false), 90);
+                frame = Utilities.convertYuvToJpeg(bytes, previewFormat, previewWidth, previewHeight);
+                scaledBitmap = Utilities.rotateImage(Bitmap.createScaledBitmap(frame, 300, 300, false), 90);
                 frame.recycle();
-                frame = null;
                 List<Classifier.Recognition> results = new ArrayList<>();
                 try {
                     List<Classifier.Recognition> res = detector.recognizeImage(scaledBitmap);
                     scaledBitmap.recycle();
-                    scaledBitmap = null;
                     for (Classifier.Recognition recognition : res) {
-                        if (recognition.getConfidence() >= 0.5) {
+                        if (recognition.getConfidence() >= 0.4) {
                             results.add(recognition);
                         }
                     }
@@ -265,23 +245,22 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
                     e.printStackTrace();
                 }
 
-                imageViewBitmap = Bitmap.createBitmap(previewWidth, previewHeight, Bitmap.Config.ARGB_8888);
-
-                float widthDiff = previewWidth / 300.0f;
-                float heightDiff = previewHeight / 300.0f;
+                imageViewBitmap = Bitmap.createBitmap(surfaceViewWidth, surfaceViewHeight, Bitmap.Config.ARGB_8888);
 
                 Canvas canvas = new Canvas(imageViewBitmap);
 
                 for (Classifier.Recognition result : results) {
                     RectF rect = result.getLocation();
 
-                    rect.left = rect.left * widthDiff;
-                    rect.right = rect.right * widthDiff;
-                    rect.top = rect.top * heightDiff;
-                    rect.bottom = rect.bottom * heightDiff;
+                    rect.left = rect.left * surfaceWidthScale;
+                    rect.right = rect.right * surfaceWidthScale;
+                    rect.top = rect.top * surfaceHeightScale;
+                    rect.bottom = rect.bottom * surfaceHeightScale;
 
-                    framePaint.setColor(DetectionActivity.productsColors.get(result.getTitle()));
-                    titlePaint.setColor(DetectionActivity.productsColors.get(result.getTitle()));
+                    Integer productColor;
+                    productColor = DetectionActivity.productsColors.get(result.getTitle());
+                    framePaint.setColor(productColor);
+                    titlePaint.setColor(productColor);
 
                     canvas.drawRect(rect, framePaint);
                     canvas.drawText(result.getTitle(), rect.left, rect.top - 10, titlePaint);
@@ -289,6 +268,7 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
 
                 runOnUiThread(() -> {
                     cameraImageView.setImageBitmap(imageViewBitmap);
+                    computingDetection = false;
                 });
 
             } catch (Exception e) {

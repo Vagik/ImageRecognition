@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private final static int CHECK_PERMISSIONS_REQUEST_CODE = 1000;
     public final static int TAKE_PHOTO_REQUEST_CODE = 1002;
 
-    private String takeImagePath;
-    private AlertDialog.Builder alertDialog;
-    private ProgressDialog progressDialog;
     private GalleryView galleryView;
 
     @Override
@@ -39,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
         if (!checkPermission()) {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA}, CHECK_PERMISSIONS_REQUEST_CODE);
         }
-
-        alertDialog = new AlertDialog.Builder(this);
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Sending image...");
 
         File dir = getExternalFilesDir(null);
         dir.mkdirs();
@@ -67,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

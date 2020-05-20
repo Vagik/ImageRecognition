@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -62,7 +63,8 @@ public class DetectionActivity extends AppCompatActivity {
         int width = metrics.widthPixels;
         int height = (int)(imageOptions.outHeight / ratio);
 
-        Picasso.get().load(new File(filePath)).resize(width, height).into(detectionImageView);
+        Picasso.get().load(new File(filePath)).resize(width, height).memoryPolicy(MemoryPolicy.NO_CACHE).into(detectionImageView);
+        //Picasso.get().load(new File(filePath)).fit().centerCrop().memoryPolicy(MemoryPolicy.NO_CACHE).into(detectionImageView);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
@@ -110,7 +112,7 @@ public class DetectionActivity extends AppCompatActivity {
             try{
                 List<Classifier.Recognition> res = detector.recognizeImage(scaledBitmap);
                 for (Classifier.Recognition recognition: res) {
-                    if (recognition.getConfidence() >= 0.5) {
+                    if (recognition.getConfidence() >= 0.5f) {
                         results.add(recognition);
                     }
                 }
