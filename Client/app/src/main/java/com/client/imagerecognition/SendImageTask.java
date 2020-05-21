@@ -9,19 +9,10 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-class ServerDetectionResult {
-    public int class_id;
-    public float score;
-    public int top_left_x;
-    public int top_left_y;
-    public int bottom_right_x;
-    public int bottom_right_y;
-}
 
 interface ISendImageCallback {
     void OnServerDetectionCompleted(String detectionResult);
