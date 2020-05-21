@@ -1,10 +1,7 @@
 package com.client.imagerecognition;
 
 
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -13,25 +10,36 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+class ServerDetectionResult {
+    public int class_id;
+    public float score;
+    public int top_left_x;
+    public int top_left_y;
+    public int bottom_right_x;
+    public int bottom_right_y;
+}
+
+interface ISendImageCallback {
+    void OnServerDetectionCompleted(String detectionResult);
+}
+
 public class SendImageTask extends AsyncTask<String, Void, String> {
 
-    private String sendImagePath;
+    private String imageFilePath;
     private Socket socket;
-    private ProgressDialog progressDialog;
-    private AlertDialog.Builder alertDialog;
+    private ISendImageCallback sendImageCallback;
 
-    public SendImageTask(String sendImagePath, ProgressDialog progressDialog, AlertDialog.Builder alertDialog) {
-        this.sendImagePath = sendImagePath;
-        this.progressDialog = progressDialog;
-        this.alertDialog = alertDialog;
+    SendImageTask(String imageFilePath, ISendImageCallback sendImageCallback) {
+        this.imageFilePath = imageFilePath;
+        this.sendImageCallback = sendImageCallback;
     }
 
     @Override
     protected String doInBackground(String... strings) {
         try {
-            socket = new Socket("192.168.0.101", 8000);
+            socket = new Socket("192.168.0.103", 8000);
             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
-            FileInputStream inputStream = new FileInputStream(sendImagePath);
+            FileInputStream inputStream = new FileInputStream(imageFilePath);
             int data;
             while ((data = inputStream.read()) > -1)
                 outputStream.write(data);
@@ -51,17 +59,6 @@ public class SendImageTask extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String detected) {
         super.onPostExecute(detected);
-        progressDialog.dismiss();
-        alertDialog
-                .setTitle("Recognition complete")
-                .setMessage("A " + detected + " was founded on the image")
-                .setCancelable(false)
-                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
+        sendImageCallback.OnServerDetectionCompleted(detected);
     }
 }

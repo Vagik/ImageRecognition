@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -18,8 +19,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,20 +33,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DetectionActivity extends AppCompatActivity {
+public class DetectionActivity extends AppCompatActivity implements ISendImageCallback {
 
     public final static String DETECTION_IMAGE_FILE_PATH = "com.client.imagerecognition.DETECTION_IMAGE_FILE_PATH";
+    public final static String MODEL_FILE_NAME = "model.tflite";
+    public final static String LABEL_FILE_NAME = "label_map.txt";
+    public final static Integer TENSOR_INPUT_SIZE = 300;
 
     private ImageView detectionImageView;
     private String filePath;
     private Classifier detector;
     private ProgressDialog progressDialog;
+    private Paint rectanglePaint;
+    private Paint titlePaint;
     public static Map<String, Integer> productsColors = new HashMap<String, Integer>() {{
         put("chips", Color.YELLOW);
         put("juice", Color.RED);
         put("lemonade", Color.BLUE);
         put("milk", Color.WHITE);
         put("peas", Color.GREEN);
+    }};
+
+    public static Map<Integer, String> productsTitles = new HashMap<Integer, String>() {{
+        put(1, "chips");
+        put(2, "juice");
+        put(3, "lemonade");
+        put(4, "milk");
+        put(5, "peas");
     }};
 
     @Override
@@ -64,13 +83,18 @@ public class DetectionActivity extends AppCompatActivity {
         int height = (int)(imageOptions.outHeight / ratio);
 
         Picasso.get().load(new File(filePath)).resize(width, height).memoryPolicy(MemoryPolicy.NO_CACHE).into(detectionImageView);
-        //Picasso.get().load(new File(filePath)).fit().centerCrop().memoryPolicy(MemoryPolicy.NO_CACHE).into(detectionImageView);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please wait...");
 
+        rectanglePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        rectanglePaint.setStyle(Paint.Style.STROKE);
+        rectanglePaint.setStrokeWidth(8);
+        titlePaint = new Paint();
+        titlePaint.setTextScaleX(2);
+
         try {
-            detector = ObjectDetectionModel.create(getAssets(), "model.tflite", "label_map.txt", 300, false);
+            detector = ObjectDetectionModel.create(getAssets(), MODEL_FILE_NAME, LABEL_FILE_NAME, TENSOR_INPUT_SIZE, false);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,16 +117,22 @@ public class DetectionActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_local_detection:
-                StartLocalDetection();
+                startLocalDetection();
                 return true;
             case R.id.action_server_detection:
+                startDetectionOnServer();
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void StartLocalDetection() {
+    private void startDetectionOnServer() {
+        progressDialog.show();
+        new SendImageTask(filePath, this).execute();
+    }
+
+    private void startLocalDetection() {
         progressDialog.show();
 
         AsyncTask.execute(() -> {
@@ -128,12 +158,7 @@ public class DetectionActivity extends AppCompatActivity {
             float heightDiff = imageViewBitmap.getHeight() / 300.0f;
 
             Canvas canvas = new Canvas(imageViewBitmap);
-            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(8);
 
-            Paint titlePaint = new Paint();
-            titlePaint.setTextScaleX(2);
             for (Classifier.Recognition result: results) {
                 RectF rect = result.getLocation();
 
@@ -142,11 +167,11 @@ public class DetectionActivity extends AppCompatActivity {
                 rect.top = rect.top * heightDiff;
                 rect.bottom = rect.bottom * heightDiff;
 
-                paint.setColor(productsColors.get(result.getTitle()));
-                titlePaint.setColor(productsColors.get(result.getTitle()));
+                Integer productColor = productsColors.get(result.getTitle());
+                rectanglePaint.setColor(productColor);
+                titlePaint.setColor(productColor);
 
-                canvas.drawRect(rect, paint);
-
+                canvas.drawRect(rect, rectanglePaint);
                 canvas.drawText(result.getTitle(), rect.left, rect.top - 10, titlePaint);
             }
 
@@ -155,6 +180,50 @@ public class DetectionActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             });
         });
+    }
 
+    private void DrawDetectionResults(List<Classifier.Recognition> results, float widthDiff, float heightDiff) {
+        BitmapDrawable drawable = (BitmapDrawable) detectionImageView.getDrawable();
+        Bitmap imageViewBitmap = drawable.getBitmap();
+
+        Canvas canvas = new Canvas(imageViewBitmap);
+
+        for (Classifier.Recognition result: results) {
+            RectF rect = result.getLocation();
+
+            rect.left = rect.left * widthDiff;
+            rect.right = rect.right * widthDiff;
+            rect.top = rect.top * heightDiff;
+            rect.bottom = rect.bottom * heightDiff;
+
+            Integer productColor = productsColors.get(result.getTitle());
+            rectanglePaint.setColor(productColor);
+            titlePaint.setColor(productColor);
+
+            canvas.drawRect(rect, rectanglePaint);
+            canvas.drawText(result.getTitle(), rect.left, rect.top - 10, titlePaint);
+        }
+
+        runOnUiThread(() ->{
+            detectionImageView.setImageBitmap(imageViewBitmap);
+            progressDialog.dismiss();
+        });
+    }
+
+    @Override
+    public void OnServerDetectionCompleted(String detectionResult) {
+        Gson gson = new GsonBuilder().create();
+        ArrayList<ServerDetectionResult> serverDetectionResults = gson.fromJson(detectionResult, ArrayList.class);
+        List<Classifier.Recognition> results = new ArrayList<>();
+        for (ServerDetectionResult res : serverDetectionResults) {
+            String id = String.valueOf(res.class_id);
+            String title = productsTitles.get(res.class_id);
+            float score = res.score;
+            RectF rect = new RectF(res.top_left_x, res.top_left_y, res.bottom_right_x, res.bottom_right_y);
+            Classifier.Recognition item = new Classifier.Recognition(id, title, score, rect);
+            results.add(item);
+        }
+
+        DrawDetectionResults(results, 1, 1);
     }
 }
