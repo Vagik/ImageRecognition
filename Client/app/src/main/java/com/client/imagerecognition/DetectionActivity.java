@@ -21,6 +21,7 @@ import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.internal.LinkedTreeMap;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
@@ -46,21 +47,8 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
     private ProgressDialog progressDialog;
     private Paint rectanglePaint;
     private Paint titlePaint;
-    public static Map<String, Integer> productsColors = new HashMap<String, Integer>() {{
-        put("chips", Color.YELLOW);
-        put("juice", Color.RED);
-        put("lemonade", Color.BLUE);
-        put("milk", Color.WHITE);
-        put("peas", Color.GREEN);
-    }};
-
-    public static Map<Integer, String> productsTitles = new HashMap<Integer, String>() {{
-        put(1, "chips");
-        put(2, "juice");
-        put(3, "lemonade");
-        put(4, "milk");
-        put(5, "peas");
-    }};
+    private float imageWidth;
+    private float imageHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +62,8 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
         BitmapFactory.Options imageOptions = new BitmapFactory.Options();
         imageOptions.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(filePath, imageOptions);
+        imageWidth = imageOptions.outWidth;
+        imageHeight = imageOptions.outHeight;
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         float screenWidth = metrics.widthPixels;
@@ -127,8 +117,36 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void OnServerDetectionCompleted(String detectionResult) {
+        Gson gson = new GsonBuilder().create();
+        ArrayList serverDetectionResults = gson.fromJson(detectionResult, ArrayList.class);
+        List<Classifier.Recognition> results = new ArrayList<>();
+        for (Object res : serverDetectionResults) {
+            LinkedTreeMap<String, Double> treeMap = (LinkedTreeMap<String, Double>) res;
+
+            String id = String.valueOf(convertDoubleToInt(treeMap.get("class_id")));
+            String title = Utilities.getProductTitle(convertDoubleToInt(treeMap.get("class_id")));
+            float score = convertDoubleToFloat(treeMap.get("score"));
+            float topLeftX = convertDoubleToFloat(treeMap.get("top_left_x"));
+            float topLeftY = convertDoubleToFloat(treeMap.get("top_left_y"));
+            float bottomRightX = convertDoubleToFloat(treeMap.get("bottom_right_x"));
+            float bottomRightY = convertDoubleToFloat(treeMap.get("bottom_right_y"));
+            RectF rect = new RectF(topLeftX, topLeftY, bottomRightX, bottomRightY);
+            Classifier.Recognition item = new Classifier.Recognition(id, title, score, rect);
+            results.add(item);
+        }
+
+        BitmapDrawable drawable = (BitmapDrawable) detectionImageView.getDrawable();
+        Bitmap imageViewBitmap = drawable.getBitmap();
+
+
+        DrawDetectionResults(results, imageViewBitmap, imageViewBitmap.getWidth() / 300.0f, imageViewBitmap.getHeight() / 300.0f);
+    }
+
     private void startDetectionOnServer() {
         progressDialog.show();
+
         new SendImageTask(filePath, this).execute();
     }
 
@@ -150,42 +168,17 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
                 e.printStackTrace();
             }
 
-
             BitmapDrawable drawable = (BitmapDrawable) detectionImageView.getDrawable();
             Bitmap imageViewBitmap = drawable.getBitmap();
 
             float widthDiff = imageViewBitmap.getWidth() / 300.0f;
             float heightDiff = imageViewBitmap.getHeight() / 300.0f;
 
-            Canvas canvas = new Canvas(imageViewBitmap);
-
-            for (Classifier.Recognition result: results) {
-                RectF rect = result.getLocation();
-
-                rect.left = rect.left * widthDiff;
-                rect.right = rect.right * widthDiff;
-                rect.top = rect.top * heightDiff;
-                rect.bottom = rect.bottom * heightDiff;
-
-                Integer productColor = productsColors.get(result.getTitle());
-                rectanglePaint.setColor(productColor);
-                titlePaint.setColor(productColor);
-
-                canvas.drawRect(rect, rectanglePaint);
-                canvas.drawText(result.getTitle(), rect.left, rect.top - 10, titlePaint);
-            }
-
-            runOnUiThread(() ->{
-                detectionImageView.setImageBitmap(imageViewBitmap);
-                progressDialog.dismiss();
-            });
+            DrawDetectionResults(results, imageViewBitmap, widthDiff, heightDiff);
         });
     }
 
-    private void DrawDetectionResults(List<Classifier.Recognition> results, float widthDiff, float heightDiff) {
-        BitmapDrawable drawable = (BitmapDrawable) detectionImageView.getDrawable();
-        Bitmap imageViewBitmap = drawable.getBitmap();
-
+    private void DrawDetectionResults(List<Classifier.Recognition> results, Bitmap imageViewBitmap, float widthDiff, float heightDiff) {
         Canvas canvas = new Canvas(imageViewBitmap);
 
         for (Classifier.Recognition result: results) {
@@ -196,7 +189,7 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
             rect.top = rect.top * heightDiff;
             rect.bottom = rect.bottom * heightDiff;
 
-            Integer productColor = productsColors.get(result.getTitle());
+            Integer productColor = Utilities.getProductColor(result.getTitle());
             rectanglePaint.setColor(productColor);
             titlePaint.setColor(productColor);
 
@@ -210,20 +203,10 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
         });
     }
 
-    @Override
-    public void OnServerDetectionCompleted(String detectionResult) {
-        Gson gson = new GsonBuilder().create();
-        ArrayList<ServerDetectionResult> serverDetectionResults = gson.fromJson(detectionResult, ArrayList.class);
-        List<Classifier.Recognition> results = new ArrayList<>();
-        for (ServerDetectionResult res : serverDetectionResults) {
-            String id = String.valueOf(res.class_id);
-            String title = productsTitles.get(res.class_id);
-            float score = res.score;
-            RectF rect = new RectF(res.top_left_x, res.top_left_y, res.bottom_right_x, res.bottom_right_y);
-            Classifier.Recognition item = new Classifier.Recognition(id, title, score, rect);
-            results.add(item);
-        }
-
-        DrawDetectionResults(results, 1, 1);
+    private int convertDoubleToInt (Double value) {
+        return (int)(double)value;
+    }
+    private float convertDoubleToFloat (Double value) {
+        return (float)(double)value;
     }
 }

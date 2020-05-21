@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f94a4f0-1714-4fb2-9e49-0d34b5803d53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ServerDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/Classifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/Classifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Images/Received.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Received.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Include/Communicate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Include/Detect.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Include/ServerDetector.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trained model/graph.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerConnection.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConnection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServerDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerDetector.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ServerDetector (1)">
+  <component name="RunManager" selected="Python.ServerConnection (1)">
     <configuration name="Communicate" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -215,8 +210,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ServerDetector (1)" />
         <item itemvalue="Python.ServerConnection (1)" />
+        <item itemvalue="Python.ServerDetector (1)" />
         <item itemvalue="Python.ServerConnection" />
         <item itemvalue="Python.ServerDetector" />
         <item itemvalue="Python.ResizeImages" />

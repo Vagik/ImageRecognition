@@ -69,8 +69,3 @@ class Detector:
                 cv.waitKey()
             else:
                 return detection_result
-
-detector = Detector()
-detection_result = detector.recognize_image(image_path="C:\Git\ImageRecognition\Server\Images\/test\/6.jpg")
-json_string = json.dumps([ob.__dict__ for ob in detection_result])
-print(json_string)

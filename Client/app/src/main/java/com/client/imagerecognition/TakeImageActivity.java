@@ -257,8 +257,7 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
                     rect.top = rect.top * surfaceHeightScale;
                     rect.bottom = rect.bottom * surfaceHeightScale;
 
-                    Integer productColor;
-                    productColor = DetectionActivity.productsColors.get(result.getTitle());
+                    int productColor = Utilities.getProductColor(result.getTitle());
                     framePaint.setColor(productColor);
                     titlePaint.setColor(productColor);
 

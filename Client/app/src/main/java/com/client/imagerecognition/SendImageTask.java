@@ -1,9 +1,13 @@
 package com.client.imagerecognition;
 
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,7 +30,6 @@ interface ISendImageCallback {
 public class SendImageTask extends AsyncTask<String, Void, String> {
 
     private String imageFilePath;
-    private Socket socket;
     private ISendImageCallback sendImageCallback;
 
     SendImageTask(String imageFilePath, ISendImageCallback sendImageCallback) {
@@ -37,9 +40,18 @@ public class SendImageTask extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         try {
-            socket = new Socket("192.168.0.103", 8000);
+            Socket socket = new Socket("192.168.0.103", 8000);
             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
-            FileInputStream inputStream = new FileInputStream(imageFilePath);
+            Bitmap bitmap = BitmapFactory.decodeFile(imageFilePath);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
+
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            scaledBitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream);
+            byte[] byteArray = stream.toByteArray();
+            scaledBitmap.recycle();
+            bitmap.recycle();
+
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(byteArray);
             int data;
             while ((data = inputStream.read()) > -1)
                 outputStream.write(data);
@@ -49,11 +61,12 @@ public class SendImageTask extends AsyncTask<String, Void, String> {
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String recognitionResult = br.readLine();
             socket.close();
+            br.close();
             return recognitionResult;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return "";
     }
 
     @Override
