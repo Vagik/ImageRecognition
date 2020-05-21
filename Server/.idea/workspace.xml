@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2f94a4f0-1714-4fb2-9e49-0d34b5803d53" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Received.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Received.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/test/5.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Include/ServerDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/Include/ServerDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trained model/frozen_inference_graph.pb" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +27,12 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Include" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Trained model" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Git\ImageRecognition\Server\Trained model" />
       <recent name="C:\Git\ImageRecognition\Server\Include" />
     </key>
   </component>
@@ -240,19 +240,15 @@
       </map>
     </option>
   </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,23 +1,19 @@
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
 import cv2 as cv
 
-
-if __name__ == "__main__":
-    imageFile = "D:\Git\ImageRecognition\Server\Images\Received.jpg"
-    model_filepath = "C:\Git\ImageRecognition\Server\Trained model\frozen_inference_graph.pb"
-
-with tf.gfile.FastGFile(model_filepath, 'rb') as f:
-    graph_def = tf.GraphDef()
+# Read the graph.
+with tf.compat.v1.gfile.FastGFile('C:\Git\ImageRecognition\Server\Trained model\inference_graph.pb', 'rb') as f:
+    graph_def = tf.compat.v1.GraphDef()
     graph_def.ParseFromString(f.read())
 
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     # Restore session
     sess.graph.as_default()
     tf.import_graph_def(graph_def, name='')
 
     # Read and preprocess an image.
-    img = cv.imread(imageFile)
+    img = cv.imread('C:\Git\ImageRecognition\Server\Images\Received.jpg')
     rows = img.shape[0]
     cols = img.shape[1]
     inp = cv.resize(img, (300, 300))
