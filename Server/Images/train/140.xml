@@ -191,4 +191,16 @@
 			<ymax>318</ymax>
 		</bndbox>
 	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>738</xmin>
+			<ymin>371</ymin>
+			<xmax>799</xmax>
+			<ymax>576</ymax>
+		</bndbox>
+	</object>
 </annotation>

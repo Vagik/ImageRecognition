@@ -1,7 +1,7 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>185.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\185.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\185.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -249,6 +249,18 @@
 			<ymin>255</ymin>
 			<xmax>793</xmax>
 			<ymax>450</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>lemonade</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>16</xmin>
+			<ymin>7</ymin>
+			<xmax>93</xmax>
+			<ymax>192</ymax>
 		</bndbox>
 	</object>
 </annotation>

@@ -1,7 +1,7 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>train</folder>
 	<filename>181.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\181.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\train\181.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -41,18 +41,6 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>298</xmin>
-			<ymin>152</ymin>
-			<xmax>493</xmax>
-			<ymax>512</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>chips</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
 			<xmin>477</xmin>
 			<ymin>5</ymin>
 			<xmax>648</xmax>
@@ -81,6 +69,18 @@
 			<ymin>5</ymin>
 			<xmax>478</xmax>
 			<ymax>177</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>chips</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>265</xmin>
+			<ymin>142</ymin>
+			<xmax>469</xmax>
+			<ymax>492</ymax>
 		</bndbox>
 	</object>
 </annotation>

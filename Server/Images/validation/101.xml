@@ -131,4 +131,16 @@
 			<ymax>372</ymax>
 		</bndbox>
 	</object>
+	<object>
+		<name>juice</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>725</xmin>
+			<ymin>148</ymin>
+			<xmax>798</xmax>
+			<ymax>359</ymax>
+		</bndbox>
+	</object>
 </annotation>

@@ -1,7 +1,7 @@
 <annotation>
-	<folder>resized</folder>
+	<folder>validation</folder>
 	<filename>275.jpg</filename>
-	<path>C:\Git\ImageRecognition\Server\Images\resized\275.jpg</path>
+	<path>C:\Git\ImageRecognition\Server\Images\validation\275.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -165,6 +165,42 @@
 			<ymin>337</ymin>
 			<xmax>501</xmax>
 			<ymax>530</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>601</xmin>
+			<ymin>333</ymin>
+			<xmax>686</xmax>
+			<ymax>532</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>542</xmin>
+			<ymin>340</ymin>
+			<xmax>622</xmax>
+			<ymax>524</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>milk</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>633</xmin>
+			<ymin>1</ymin>
+			<xmax>724</xmax>
+			<ymax>205</ymax>
 		</bndbox>
 	</object>
 </annotation>
