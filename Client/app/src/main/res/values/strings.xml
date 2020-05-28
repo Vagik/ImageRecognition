@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ImageRecognition</string>
+    <string name="app_name">Products Detection</string>
     <string name="add_image_button_text">Add Image</string>
     <string name="action_local_detection">Local Detection</string>
     <string name="action_server_detection">Server Detection</string>

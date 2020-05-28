@@ -155,10 +155,12 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
 
         AsyncTask.execute(() -> {
             Bitmap bitmap = BitmapFactory.decodeFile(filePath);
-            Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
+            Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, TENSOR_INPUT_SIZE, TENSOR_INPUT_SIZE, false);
             List<Classifier.Recognition> results = new ArrayList<>();
             try{
+                long start = System.currentTimeMillis();
                 List<Classifier.Recognition> res = detector.recognizeImage(scaledBitmap);
+                long time = System.currentTimeMillis() - start;
                 for (Classifier.Recognition recognition: res) {
                     if (recognition.getConfidence() >= 0.5f) {
                         results.add(recognition);
