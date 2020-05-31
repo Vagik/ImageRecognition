@@ -28,6 +28,7 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Console;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +41,7 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
     public final static String MODEL_FILE_NAME = "model.tflite";
     public final static String LABEL_FILE_NAME = "label_map.txt";
     public final static Integer TENSOR_INPUT_SIZE = 300;
+    public final static Boolean IS_QUANTIZED = false;
 
     private ImageView detectionImageView;
     private String filePath;
@@ -49,6 +51,8 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
     private Paint titlePaint;
     private float imageWidth;
     private float imageHeight;
+    private long serverStartTime;
+    private long serverEndTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +88,7 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
         titlePaint.setTextScaleX(2);
 
         try {
-            detector = ObjectDetectionModel.create(getAssets(), MODEL_FILE_NAME, LABEL_FILE_NAME, TENSOR_INPUT_SIZE, false);
+            detector = ObjectDetectionModel.create(getAssets(), MODEL_FILE_NAME, LABEL_FILE_NAME, TENSOR_INPUT_SIZE, IS_QUANTIZED);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -137,20 +141,30 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
             results.add(item);
         }
 
+        serverEndTime = System.currentTimeMillis() - serverStartTime;
         BitmapDrawable drawable = (BitmapDrawable) detectionImageView.getDrawable();
         Bitmap imageViewBitmap = drawable.getBitmap();
 
 
         DrawDetectionResults(results, imageViewBitmap, imageViewBitmap.getWidth() / 300.0f, imageViewBitmap.getHeight() / 300.0f);
+
+        runOnUiThread(() ->{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Time: " + serverEndTime + " ms");
+            builder.setNeutralButton("Ok", null);
+            builder.show();
+        });
     }
 
     private void startDetectionOnServer() {
         progressDialog.show();
-
+        serverStartTime = System.currentTimeMillis();
         new SendImageTask(filePath, this).execute();
     }
 
     private void startLocalDetection() {
+        long start = System.currentTimeMillis();
+
         progressDialog.show();
 
         AsyncTask.execute(() -> {
@@ -158,9 +172,7 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, TENSOR_INPUT_SIZE, TENSOR_INPUT_SIZE, false);
             List<Classifier.Recognition> results = new ArrayList<>();
             try{
-                long start = System.currentTimeMillis();
                 List<Classifier.Recognition> res = detector.recognizeImage(scaledBitmap);
-                long time = System.currentTimeMillis() - start;
                 for (Classifier.Recognition recognition: res) {
                     if (recognition.getConfidence() >= 0.5f) {
                         results.add(recognition);
@@ -170,6 +182,9 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
                 e.printStackTrace();
             }
 
+            long time = System.currentTimeMillis() - start;
+            System.out.println("AAAAA Time: " + time);
+
             BitmapDrawable drawable = (BitmapDrawable) detectionImageView.getDrawable();
             Bitmap imageViewBitmap = drawable.getBitmap();
 
@@ -177,6 +192,13 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
             float heightDiff = imageViewBitmap.getHeight() / 300.0f;
 
             DrawDetectionResults(results, imageViewBitmap, widthDiff, heightDiff);
+
+            runOnUiThread(() ->{
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Time: " + time + " ms");
+                builder.setNeutralButton("Ok", null);
+                builder.show();
+            });
         });
     }
 

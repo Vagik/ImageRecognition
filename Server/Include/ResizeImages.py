@@ -3,7 +3,6 @@ import glob
 import cv2
 
 if __name__ == "__main__":
-
     raw_dir = 'C:/Git/ImageRecognition/Server/Images/to_resize'
     save_dir = 'C:/Git/ImageRecognition/Server/Images/resized'
     ext = 'jpg'

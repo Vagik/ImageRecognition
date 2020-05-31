@@ -132,7 +132,8 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
         } else {
             camera.setPreviewCallback(this);
             try {
-                detector = ObjectDetectionModel.create(getAssets(), "model.tflite", "label_map.txt", 300, false);
+                detector = ObjectDetectionModel.create(getAssets(), DetectionActivity.MODEL_FILE_NAME, DetectionActivity.LABEL_FILE_NAME,
+                        DetectionActivity.TENSOR_INPUT_SIZE, DetectionActivity.IS_QUANTIZED);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -227,8 +228,10 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
         }
 
         computingDetection = true;
+
         AsyncTask.execute(() -> {
             try {
+                long start = System.currentTimeMillis();
                 frame = Utilities.convertYuvToJpeg(bytes, previewFormat, previewWidth, previewHeight);
                 scaledBitmap = Utilities.rotateImage(Bitmap.createScaledBitmap(frame, 300, 300, false), 90);
                 frame.recycle();
@@ -244,6 +247,9 @@ public class TakeImageActivity extends AppCompatActivity implements IStartCamera
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
+                long time = System.currentTimeMillis() - start;
+                System.out.println("AAAAA Time: " + time);
 
                 imageViewBitmap = Bitmap.createBitmap(surfaceViewWidth, surfaceViewHeight, Bitmap.Config.ARGB_8888);
 

@@ -2,6 +2,7 @@ import json
 
 import tensorflow as tf
 import cv2 as cv
+from timeit import default_timer as timer
 
 
 class DetectionItem:
@@ -22,8 +23,8 @@ class DetectionItem:
 
 
 class Detector:
-    def __init__(self):
-        self.debug_mode = False
+    def __init__(self, debug_mode=False):
+        self.debug_mode = debug_mode
         model_file_path = "C:\Git\ImageRecognition\Server\Trained model\inference_graph.pb"
         with tf.compat.v1.gfile.FastGFile(model_file_path, 'rb') as f:
             self.graph_def = tf.compat.v1.GraphDef()
@@ -34,6 +35,7 @@ class Detector:
             sess.graph.as_default()
             tf.import_graph_def(self.graph_def, name='')
 
+            start_time = timer()
             img = cv.imread(image_path)
             rows = img.shape[0]
             cols = img.shape[1]
@@ -60,12 +62,12 @@ class Detector:
 
                     item = DetectionItem(classId, score, x, y, right, bottom)
                     detection_result.append(item)
-                    if self.debug_mode:
-                        print(item.to_json())
                     cv.rectangle(img, (int(x), int(y)), (int(right), int(bottom)), (125, 255, 51), thickness=2)
 
             if self.debug_mode:
                 cv.imshow('Products Detection', img)
                 cv.waitKey()
             else:
+                end_time = timer()
+                print("Time: ", (end_time - start_time))
                 return detection_result

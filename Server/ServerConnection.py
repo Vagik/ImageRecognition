@@ -33,7 +33,6 @@ class ServerConnection:
 
             detection_result = self.detector.recognize_image(image_path=self.received_image_path)
             result_json = json.dumps([ob.__dict__ for ob in detection_result])
-            print('Detected: ', detection_result)
             conn.send(result_json.encode("utf-8"))
             break
         self.sock.close()
