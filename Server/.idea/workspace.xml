@@ -2,15 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f94a4f0-1714-4fb2-9e49-0d34b5803d53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/DetectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/DetectionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/TakeImageActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/TakeImageActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Received.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Received.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/test/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Include/ResizeImages.py" beforeDir="false" afterPath="$PROJECT_DIR$/Include/ResizeImages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConnection.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConnection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerDetector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/318.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/320.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/330.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/331.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/347.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/357.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/358.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/359.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/360.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/375.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/377.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/378.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/resized/449.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0626.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0627.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0628.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0629.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0630.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0631.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0632.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0633.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0634.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0635.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0636.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0637.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0638.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0639.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0640.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0641.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0642.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0643.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0644.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0645.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0646.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0647.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0648.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0649.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0650.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0651.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0652.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0653.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0654.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0655.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0656.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0657.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0658.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0659.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0660.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0661.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0662.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0663.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0664.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0665.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0666.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0667.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0668.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0669.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0670.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0671.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0672.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0673.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0674.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0675.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0676.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0677.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0678.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0679.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0680.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0681.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0682.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0683.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0684.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0685.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0686.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0687.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0688.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0689.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0691.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0692.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0693.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0694.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0695.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0696.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0697.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0698.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0699.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0700.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0701.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0702.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0703.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0704.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0705.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0706.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/to_resize/IMG_0707.JPG" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +120,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/labelImg-master" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
