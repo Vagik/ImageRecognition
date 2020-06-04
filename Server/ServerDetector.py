@@ -25,7 +25,7 @@ class DetectionItem:
 class Detector:
     def __init__(self, debug_mode=False):
         self.debug_mode = debug_mode
-        model_file_path = "C:\Git\ImageRecognition\Server\Trained model\inference_graph.pb"
+        model_file_path = "C:\Git\ImageRecognition\Server\Trained model\model.pb"
         with tf.compat.v1.gfile.FastGFile(model_file_path, 'rb') as f:
             self.graph_def = tf.compat.v1.GraphDef()
             self.graph_def.ParseFromString(f.read())
@@ -61,10 +61,12 @@ class Detector:
                     bottom = int(bbox[2] * rows)
 
                     item = DetectionItem(classId, score, x, y, right, bottom)
+                    print(classId)
                     detection_result.append(item)
                     cv.rectangle(img, (int(x), int(y)), (int(right), int(bottom)), (125, 255, 51), thickness=2)
 
             if self.debug_mode:
+                cv.namedWindow("Products Detection", cv.WINDOW_NORMAL);
                 cv.imshow('Products Detection', img)
                 cv.waitKey()
             else:

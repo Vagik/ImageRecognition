@@ -10,10 +10,10 @@ class ServerConnection:
         self.sock = socket.socket()
         self.sock.bind(('', 8000))
         self.sock.listen(1)
-        self.detector = Detector()
 
     def connect_for_one_detection(self):
         while True:
+            detector = Detector()
             print('Connecting...')
             conn, addr = self.sock.accept()
             print('Connected:', addr)
@@ -31,7 +31,7 @@ class ServerConnection:
             img.close()
             print("Received")
 
-            detection_result = self.detector.recognize_image(image_path=self.received_image_path)
+            detection_result = detector.recognize_image(image_path=self.received_image_path)
             result_json = json.dumps([ob.__dict__ for ob in detection_result])
             conn.send(result_json.encode("utf-8"))
             break

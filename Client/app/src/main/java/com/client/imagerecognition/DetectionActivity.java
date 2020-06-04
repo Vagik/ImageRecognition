@@ -41,7 +41,7 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
     public final static String MODEL_FILE_NAME = "model.tflite";
     public final static String LABEL_FILE_NAME = "label_map.txt";
     public final static Integer TENSOR_INPUT_SIZE = 300;
-    public final static Boolean IS_QUANTIZED = false;
+    public final static Boolean IS_QUANTIZED = true;
 
     private ImageView detectionImageView;
     private String filePath;
@@ -61,7 +61,6 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
 
         filePath = getIntent().getStringExtra(DETECTION_IMAGE_FILE_PATH);
         detectionImageView = findViewById(R.id.detection_image_view);
-
 
         BitmapFactory.Options imageOptions = new BitmapFactory.Options();
         imageOptions.inJustDecodeBounds = true;
@@ -164,7 +163,6 @@ public class DetectionActivity extends AppCompatActivity implements ISendImageCa
 
     private void startLocalDetection() {
         long start = System.currentTimeMillis();
-
         progressDialog.show();
 
         AsyncTask.execute(() -> {
