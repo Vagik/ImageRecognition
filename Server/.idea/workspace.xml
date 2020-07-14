@@ -2,36 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f94a4f0-1714-4fb2-9e49-0d34b5803d53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/app/src/main/assets/model.tflite" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/app/src/main/assets/model.tflite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/DetectionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/app/src/main/java/com/client/imagerecognition/DetectionActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/Received.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/Received.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/11.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/13.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/14.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/15.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/16.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/318.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/320.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/330.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/331.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/347.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/357.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/358.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/359.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/360.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/375.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/377.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/378.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/449.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/check/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/check/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerConnection.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerConnection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ServerDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/ServerDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestDetector.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestDetector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Trained model/inference_graph.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/test/8.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
